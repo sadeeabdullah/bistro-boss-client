@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -6,12 +7,21 @@ const Navbar = () => {
     <><li><Link to='/'>Home</Link></li>
     <li><Link to='/menu'>Our Menu</Link></li>
     <li><Link to='/order/salad'>Order Food</Link></li>
+    <li><Link to='/login'>Login</Link></li>
     
     </>
+     const [scrolled, setScrolled] = useState(false);
+
+     useEffect(() => {
+       const handleScroll = () => setScrolled(window.scrollY > 0);
+   
+       window.addEventListener('scroll', handleScroll);
+       return () => window.removeEventListener('scroll', handleScroll);
+     }, []);
 
   return (
     <div className="">
-    <div className="navbar  fixed z-10 bg-black bg-opacity-30 text-white max-w-screen-xl  mx-auto">
+    <div className={` ${scrolled ? 'navbar  fixed z-10 bg-base-500 bg-opacity-100 bg-white text-black max-w-screen-xl  mx-auto' : 'navbar  fixed z-10 bg-black bg-opacity-30 text-white max-w-screen-xl  mx-auto'}`}>
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
