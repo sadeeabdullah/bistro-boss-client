@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import GoogleLogin from "../../Component/SocailLogin/GoogleLogin";
 // import {  updateProfile } from "firebase/auth";
 
 const SignUp = () => {
@@ -148,6 +149,10 @@ const SignUp = () => {
               Already have an account? <Link to="/login">Login</Link>
             </small>
           </p>
+          <div className="divider"></div>
+            <div className="flex justify-center items-center mb-8">
+            <GoogleLogin className="text-red-700"></GoogleLogin>
+            </div>
         </div>
       </div>
     </div>

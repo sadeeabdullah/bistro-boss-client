@@ -4,6 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import GoogleLogin from "../../Component/SocailLogin/GoogleLogin";
 
 
 
@@ -15,8 +16,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/'
-    console.log('state in the location',location.state)
+    const from = location.state?.from?.pathname || '/';
 
     useEffect(( ) => {
         loadCaptchaEnginge(6); 
@@ -128,9 +128,14 @@ const Login = () => {
             <div className="form-control mt-6">
               <input disabled={disable} className="btn btn-primary" type="submit" value="Login" />
             </div>
+            
           </form>
           <p className="text-center mb-4"><small className="text-sky-900">New here? <Link to='/signUp'>
           Create an account</Link></small></p>
+        <div className="divider"></div>
+            <div className="flex justify-center items-center mb-8">
+            <GoogleLogin className="text-red-700"></GoogleLogin>
+            </div>
         </div>
       </div>
     </div>
