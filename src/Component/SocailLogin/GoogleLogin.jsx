@@ -11,7 +11,6 @@ const GoogleLogin = () => {
     const navigate = useNavigate();
 
     const handleGoogleSignIn = () => {
-        console.log(googleSignIn)
         googleSignIn()
         .then(res =>{
             console.log(res)

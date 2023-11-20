@@ -48,6 +48,7 @@ const Navbar = () => {
       {user ? (
         <>
           {/* <span>{user?.displayName}</span> */}
+          <p>{user?.displayName}</p>
           <button onClick={handleLogout} className="btn btn-outline ">
             Log Out
           </button>
